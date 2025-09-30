@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { skills } from "@/data/skills";
 import styles from "./Skills.module.css";
+import { FaStar, FaRegStar } from "react-icons/fa";
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -37,6 +38,31 @@ const Skills = () => {
       ? skills
       : skills.filter((skill) => skill.category === activeCategory);
 
+  // Função para renderizar estrelas baseado no nível
+  const renderStars = (level: number) => {
+    const stars = [];
+    const fullStars = Math.floor(level / 20); // 5 estrelas = 100%
+    const hasHalfStar = level % 20 >= 10;
+
+    // Estrelas preenchidas
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<FaStar key={`full-${i}`} className={styles.starFilled} />);
+    }
+
+    // Estrela meio preenchida (opcional)
+    if (hasHalfStar && fullStars < 5) {
+      stars.push(<FaStar key="half" className={styles.starHalf} />);
+    }
+
+    // Estrelas vazias
+    const remainingStars = 5 - stars.length;
+    for (let i = 0; i < remainingStars; i++) {
+      stars.push(<FaRegStar key={`empty-${i}`} className={styles.starEmpty} />);
+    }
+
+    return stars;
+  };
+
   return (
     <section id="skills" className={`section ${styles.skills}`}>
       <div className="container">
@@ -48,7 +74,7 @@ const Skills = () => {
           <h2 className="heading-lg text-center mb-md">
             Minhas <span className="text-gradient">Habilidades</span>
           </h2>
-          <p className="body-lg text-gray-600 text-center mb-2xl">
+          <p className="body-lg text-secondary text-center mb-2xl">
             Tecnologias e ferramentas que domino para criar soluções completas
           </p>
         </div>
@@ -78,18 +104,26 @@ const Skills = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={styles.skillHeader}>
-                <div className={styles.skillIcon}>{skill.icon}</div>
+                <span className={styles.skillIcon}>{skill.icon}</span>
                 <h3 className={styles.skillName}>{skill.name}</h3>
               </div>
 
-              <div className={styles.skillProgress}>
-                <div className={styles.progressBar}>
-                  <div
-                    className={styles.progressFill}
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
+              <div className={styles.skillRating}>
+                <div className={styles.starsContainer}>
+                  {renderStars(skill.level)}
                 </div>
                 <span className={styles.skillLevel}>{skill.level}%</span>
+              </div>
+
+              {/* Barra de progresso minimalista */}
+              <div className={styles.progressBar}>
+                <div
+                  className={styles.progressFill}
+                  style={{
+                    width: `${skill.level}%`,
+                    animationDelay: `${index * 0.1 + 0.5}s`,
+                  }}
+                ></div>
               </div>
             </div>
           ))}

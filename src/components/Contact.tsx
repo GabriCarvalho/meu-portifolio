@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { ContactForm } from "@/types";
 import styles from "./Contact.module.css";
+import emailjs from "@emailjs/browser";
 import {
   FaLinkedin,
   FaGithub,
@@ -54,13 +55,27 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simular envio do formulário
     try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      console.log("Formulário enviado:", formData);
+      // Configurações do EmailJS - SUBSTITUA PELOS SEUS DADOS
+      const serviceId = "service_xhq8s7n";
+      const templateId = "template_yd4rc0b";
+      const publicKey = "VC00m6sjsrWrmaNlo";
+
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: "gabriel.carv008@gmail.com", // Seu email
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      console.log("Email enviado com sucesso!");
       setSubmitStatus("success");
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
+      console.error("Erro ao enviar email:", error);
       setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -68,27 +83,28 @@ const Contact = () => {
     }
   };
 
+  // Resto do código permanece igual...
   const contactInfo = [
     {
-      icon: <FaEnvelope />, // ← Mudou aqui
+      icon: <FaEnvelope />,
       label: "Email",
       value: "gabriel.carv008@gmail.com",
       link: "mailto:gabriel.carv008@gmail.com",
     },
     {
-      icon: <FaWhatsapp />, // ← Mudou aqui
+      icon: <FaWhatsapp />,
       label: "WhatsApp",
       value: "+55 (12) 97409-4970",
       link: "https://wa.me/5512974094970",
     },
     {
-      icon: <FaMapMarkerAlt />, // ← Mudou aqui
+      icon: <FaMapMarkerAlt />,
       label: "Localização",
       value: "São José dos Campos, SP",
       link: "https://maps.google.com",
     },
     {
-      icon: <FaLinkedin />, // ← Mudou aqui
+      icon: <FaLinkedin />,
       label: "LinkedIn",
       value: "Gabriel Carvalho",
       link: "https://www.linkedin.com/in/gabrielantoniodecarvalho/",

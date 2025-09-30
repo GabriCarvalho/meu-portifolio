@@ -1,21 +1,17 @@
 export interface Project {
-  id: string;
+  id: number;
   title: string;
   description: string;
-  longDescription: string;
   image: string;
+  githubUrl: string;
   technologies: string[];
-  githubUrl?: string;
-  liveUrl?: string;
-  featured: boolean;
-  category: "web" | "mobile" | "fullstack" | "api";
 }
 
 export interface Skill {
-  id: string;
+  id: number;
   name: string;
   level: number;
-  category: "frontend" | "backend" | "tools" | "design";
+  category: string;
   icon: string;
 }
 
