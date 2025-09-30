@@ -1,16 +1,39 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  title: "Meu Portfolio - Desenvolvedor Full Stack",
+  metadataBase: new URL("https://seudominio.com"), // ← Adicione esta linha
+  title: "Gabriel Carvalho - Desenvolvedor Full Stack",
   description:
-    "Portfolio profissional de desenvolvedor full stack especializado em React, Next.js e tecnologias modernas.",
-  keywords: "desenvolvedor, full stack, react, nextjs, typescript, portfolio",
-  authors: [{ name: "Seu Nome" }],
-  viewport: "width=device-width, initial-scale=1",
+    "Portfolio de Gabriel Carvalho, desenvolvedor full stack especializado em React, Next.js e Node.js",
+  keywords: ["desenvolvedor", "full stack", "react", "nextjs", "portfolio"],
+  authors: [{ name: "Gabriel Carvalho" }],
+  openGraph: {
+    title: "Gabriel Carvalho - Desenvolvedor Full Stack",
+    description: "Portfolio de Gabriel Carvalho",
+    type: "website",
+    url: "https://seudominio.com",
+    images: [
+      {
+        url: "/og-image.jpg", // Imagem para compartilhamento
+        width: 1200,
+        height: 630,
+        alt: "Gabriel Carvalho - Desenvolvedor Full Stack",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gabriel Carvalho - Desenvolvedor Full Stack",
+    description: "Portfolio de Gabriel Carvalho",
+    images: ["/og-image.jpg"],
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
@@ -20,7 +43,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body className={inter.className}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

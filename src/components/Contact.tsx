@@ -3,6 +3,13 @@
 import { useState, useEffect } from "react";
 import { ContactForm } from "@/types";
 import styles from "./Contact.module.css";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaEnvelope,
+  FaWhatsapp,
+  FaMapMarkerAlt,
+} from "react-icons/fa";
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -63,28 +70,28 @@ const Contact = () => {
 
   const contactInfo = [
     {
-      icon: "📧",
+      icon: <FaEnvelope />, // ← Mudou aqui
       label: "Email",
-      value: "contato@seudominio.com",
-      link: "mailto:contato@seudominio.com",
+      value: "gabriel.carv008@gmail.com",
+      link: "mailto:gabriel.carv008@gmail.com",
     },
     {
-      icon: "📱",
+      icon: <FaWhatsapp />, // ← Mudou aqui
       label: "WhatsApp",
-      value: "+55 (11) 99999-9999",
-      link: "https://wa.me/5511999999999",
+      value: "+55 (12) 97409-4970",
+      link: "https://wa.me/5512974094970",
     },
     {
-      icon: "📍",
+      icon: <FaMapMarkerAlt />, // ← Mudou aqui
       label: "Localização",
-      value: "São Paulo, SP",
+      value: "São José dos Campos, SP",
       link: "https://maps.google.com",
     },
     {
-      icon: "💼",
+      icon: <FaLinkedin />, // ← Mudou aqui
       label: "LinkedIn",
-      value: "/in/seu-perfil",
-      link: "https://linkedin.com/in/seu-perfil",
+      value: "Gabriel Carvalho",
+      link: "https://www.linkedin.com/in/gabrielantoniodecarvalho/",
     },
   ];
 
@@ -139,32 +146,18 @@ const Contact = () => {
               <h4>Redes Sociais</h4>
               <div className={styles.socialIcons}>
                 <a
-                  href="https://github.com"
+                  href="https://github.com/GabriCarvalho"
                   rel="noopener noreferrer"
                   className={styles.socialIcon}
                 >
-                  📝
+                  <FaGithub size={24} />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/gabrielantoniodecarvalho/"
                   rel="noopener noreferrer"
                   className={styles.socialIcon}
                 >
-                  💼
-                </a>
-                <a
-                  href="https://twitter.com"
-                  rel="noopener noreferrer"
-                  className={styles.socialIcon}
-                >
-                  🐦
-                </a>
-                <a
-                  href="https://instagram.com"
-                  rel="noopener noreferrer"
-                  className={styles.socialIcon}
-                >
-                  📷
+                  <FaLinkedin size={24} />
                 </a>
               </div>
             </div>
