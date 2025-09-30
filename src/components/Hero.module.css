@@ -1,0 +1,162 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--gradient-hero);
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.heroContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease-out;
+}
+
+.heroContent.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.heroText {
+  z-index: 2;
+}
+
+.heroTitle {
+  margin-bottom: var(--space-lg);
+  animation: slideUp 1s ease-out 0.2s both;
+}
+
+.heroSubtitle {
+  margin-bottom: var(--space-2xl);
+  max-width: 500px;
+  animation: slideUp 1s ease-out 0.4s both;
+}
+
+.heroButtons {
+  display: flex;
+  gap: var(--space-md);
+  animation: slideUp 1s ease-out 0.6s both;
+}
+
+.heroVisual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroCard {
+  background: white;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-2xl);
+  padding: var(--space-xl);
+  border: 1px solid var(--gray-200);
+  animation: float 6s ease-in-out infinite;
+  z-index: 2;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  min-width: 250px;
+}
+
+.statusIndicator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background: var(--green-500);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.techStack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.floatingElements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.floatingElement {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+}
+
+.element1 {
+  width: 100px;
+  height: 100px;
+  background: var(--primary-500);
+  top: 20%;
+  left: 10%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.element2 {
+  width: 60px;
+  height: 60px;
+  background: var(--primary-400);
+  top: 60%;
+  right: 20%;
+  animation: float 6s ease-in-out infinite reverse;
+}
+
+.element3 {
+  width: 80px;
+  height: 80px;
+  background: var(--primary-300);
+  bottom: 30%;
+  left: 20%;
+  animation: float 10s ease-in-out infinite;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContent {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    text-align: center;
+  }
+
+  .heroButtons {
+    flex-direction: column;
+  }
+
+  .heroCard {
+    padding: var(--space-lg);
+  }
+
+  .cardContent {
+    min-width: auto;
+  }
+}
