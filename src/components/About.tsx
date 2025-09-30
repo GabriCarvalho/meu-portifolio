@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image"; // Importar o componente Image do Next.js
 import styles from "./About.module.css";
 
 const About = () => {
@@ -43,24 +44,27 @@ const About = () => {
             </h2>
 
             <div className={styles.textContent}>
-              <p className="body-lg text-gray-600 mb-md">
+              <p className="body-lg text-secondary mb-md">
                 Olá! Sou um desenvolvedor full stack apaixonado por criar
-                soluções digitais que fazem a diferença. Com mais de 3 anos de
+                soluções digitais que fazem a diferença. Com mais de 2 anos de
                 experiência, especializo-me em transformar ideias complexas em
                 aplicações elegantes e funcionais.
               </p>
 
-              <p className="body-md text-gray-600 mb-md">
-                Minha jornada começou com curiosidade sobre como as coisas
-                funcionam na internet, e hoje trabalho com as tecnologias mais
-                modernas do mercado, sempre focando em performance, usabilidade
-                e código limpo.
+              <p className="body-md text-secondary mb-md">
+                Minha jornada começou com paixão por tecnologia e suporte em TI,
+                evoluindo para o desenvolvimento fullstack, onde aplico
+                conceitos de lógica, programação e boas práticas. Hoje, busco
+                unir performance, segurança e usabilidade, sempre com foco em
+                soluções modernas e código de qualidade.
               </p>
 
-              <p className="body-md text-gray-600 mb-lg">
-                Quando não estou codando, você pode me encontrar explorando
-                novas tecnologias, contribuindo para projetos open source, ou
-                tomando um café enquanto planejo o próximo projeto inovador.
+              <p className="body-md text-secondary mb-lg">
+                Quando não estou programando, gosto de dedicar meu tempo a
+                aprender coisas novas, explorando áreas que me desafiam e
+                ampliam meus conhecimentos. Além disso, mantenho o hábito de
+                praticar exercícios, equilibrando mente e corpo para estar
+                sempre em evolução.
               </p>
             </div>
 
@@ -88,11 +92,25 @@ const About = () => {
           <div className={styles.aboutVisual}>
             <div className={styles.profileCard}>
               <div className={styles.profileImage}>
+                {/* OPÇÃO 1: Usando Next.js Image (Recomendado) */}
+                <Image
+                  src="/imagens/eu.jpeg"
+                  alt="Foto de perfil"
+                  width={400}
+                  height={500}
+                  className={styles.image}
+                  priority
+                />
+
+                {/* OPÇÃO 2: Usando tag img normal */}
+                {/* 
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face"
+                  src="/imagens/eu.jpeg"
                   alt="Foto de perfil"
                   className={styles.image}
                 />
+                */}
+
                 <div className={styles.statusBadge}>
                   <div className={styles.statusDot}></div>
                   <span>Disponível</span>
