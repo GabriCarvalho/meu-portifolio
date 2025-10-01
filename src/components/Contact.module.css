@@ -74,15 +74,24 @@
   border-color: var(--primary-300);
 }
 
+/* ✅ ÍCONES DOS CONTATOS - CORRIGIDO */
 .infoIcon {
-  font-size: 1.5rem;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--primary-50);
-  border-radius: var(--radius-lg);
+  font-size: 1.5rem !important;
+  width: 50px !important;
+  height: 50px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #dbeafe !important;
+  border-radius: var(--radius-lg) !important;
+  color: #3b82f6 !important;
+  flex-shrink: 0 !important;
+}
+
+.infoItem:hover .infoIcon {
+  background: #3b82f6 !important;
+  color: white !important;
+  transform: scale(1.05) !important;
 }
 
 .infoContent {
@@ -116,6 +125,7 @@
   gap: var(--space-md);
 }
 
+/* ✅ ÍCONES SOCIAIS - CORRIGIDO (removido duplicata) */
 .socialIcon {
   width: 50px;
   height: 50px;
@@ -129,12 +139,14 @@
   text-decoration: none;
   font-size: 1.5rem;
   transition: all var(--transition-normal);
+  color: var(--gray-600); /* ✅ Cor definida */
 }
 
 .socialIcon:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
-  background: var(--primary-50);
+  background: #dbeafe;
+  color: #3b82f6;
 }
 
 .contactForm {
@@ -211,12 +223,6 @@
   margin-right: var(--space-xs);
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .successMessage,
 .errorMessage {
   margin-top: var(--space-md);
@@ -238,6 +244,25 @@
   border: 1px solid #fecaca;
 }
 
+/* ✅ ANIMAÇÕES - ADICIONADAS */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ✅ RESPONSIVO */
 @media (max-width: 768px) {
   .contactContent {
     grid-template-columns: 1fr;
@@ -253,41 +278,13 @@
   }
 }
 
-.socialIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  background: var(--surface);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--border);
-  text-decoration: none;
-  transition: all var(--transition-normal);
-  color: var(--text-secondary);
-  position: relative;
+/* ✅ MODO ESCURO - SIMPLIFICADO */
+[data-theme="dark"] .infoIcon {
+  background: #1e3a8a !important;
+  color: #93c5fd !important;
 }
 
-.socialIcon:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  background: var(--primary-50);
-  color: #0077b5; /* Cor do LinkedIn */
-}
-
-.iconImage {
-  width: 24px;
-  height: 24px;
-  transition: all var(--transition-normal);
-}
-
-/* Para modo escuro */
-[data-theme="dark"] .iconImage {
-  filter: brightness(0) saturate(100%) invert(84%) sepia(8%) saturate(555%)
-    hue-rotate(185deg) brightness(95%) contrast(93%);
-}
-
-[data-theme="dark"] .socialIcon:hover .iconImage {
-  filter: none;
+[data-theme="dark"] .infoItem:hover .infoIcon {
+  background: #3b82f6 !important;
+  color: white !important;
 }

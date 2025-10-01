@@ -86,24 +86,37 @@ const Contact = () => {
   // Resto do código permanece igual...
   const contactInfo = [
     {
-      icon: <FaEnvelope />,
+      iconType: "email",
       label: "Email",
       value: "gabriel.carv008@gmail.com",
       link: "mailto:gabriel.carv008@gmail.com",
     },
     {
-      icon: <FaWhatsapp />,
+      iconType: "whatsapp",
       label: "WhatsApp",
       value: "+55 (12) 97409-4970",
       link: "https://wa.me/5512974094970",
     },
     {
-      icon: <FaLinkedin />,
+      iconType: "linkedin",
       label: "LinkedIn",
       value: "Gabriel Carvalho",
       link: "https://www.linkedin.com/in/gabrielantoniodecarvalho/",
     },
   ];
+
+  const getIcon = (iconType: string) => {
+    switch (iconType) {
+      case "email":
+        return <FaEnvelope />;
+      case "whatsapp":
+        return <FaWhatsapp />;
+      case "linkedin":
+        return <FaLinkedin />;
+      default:
+        return <FaEnvelope />;
+    }
+  };
 
   return (
     <section id="contact" className={`section ${styles.contact}`}>
@@ -143,7 +156,10 @@ const Contact = () => {
                   className={styles.infoItem}
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className={styles.infoIcon}>{info.icon}</div>
+                  <div className={styles.infoIcon}>
+                    {getIcon(info.iconType)}
+                  </div>{" "}
+                  {/* ✅ ESTA LINHA MUDOU */}
                   <div className={styles.infoContent}>
                     <span className={styles.infoLabel}>{info.label}</span>
                     <span className={styles.infoValue}>{info.value}</span>
