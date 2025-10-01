@@ -21,7 +21,7 @@ export const projects = [
     description:
       "Meu portifólio pessoal para mostrar meus projetos e habilidades",
     image: "./imagens/portifolio.png",
-    githubUrl: "https://github.com/GabriCarvalho/delivery-app",
+    githubUrl: "https://github.com/GabriCarvalho/meu-portifolio",
     technologies: ["React", "Typescript", "CSS Modules"],
   },
 ];

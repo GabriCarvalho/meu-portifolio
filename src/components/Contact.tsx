@@ -98,12 +98,6 @@ const Contact = () => {
       link: "https://wa.me/5512974094970",
     },
     {
-      icon: <FaMapMarkerAlt />,
-      label: "Localização",
-      value: "São José dos Campos, SP",
-      link: "https://maps.google.com",
-    },
-    {
       icon: <FaLinkedin />,
       label: "LinkedIn",
       value: "Gabriel Carvalho",
