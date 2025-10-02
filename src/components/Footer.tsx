@@ -49,21 +49,27 @@ const Footer = () => {
               <h4>Contato</h4>
               <ul>
                 <li>
-                  <a href="mailto:contato@seudominio.com">Email</a>
+                  <a href="mailto:gabriel.carv008@gmail.com">Email</a>
                 </li>
                 <li>
-                  <a href="https://linkedin.com" rel="noopener noreferrer">
+                  <a
+                    href="https://www.linkedin.com/in/gabrielantoniodecarvalho/"
+                    rel="noopener noreferrer"
+                  >
                     LinkedIn
                   </a>
                 </li>
                 <li>
-                  <a href="https://github.com" rel="noopener noreferrer">
+                  <a
+                    href="https://github.com/GabriCarvalho"
+                    rel="noopener noreferrer"
+                  >
                     GitHub
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://wa.me/5511999999999"
+                    href="https://wa.me/5512974094970"
                     rel="noopener noreferrer"
                   >
                     WhatsApp
