@@ -24,4 +24,13 @@ export const projects = [
     githubUrl: "https://github.com/GabriCarvalho/meu-portifolio",
     technologies: ["React", "Typescript", "CSS Modules"],
   },
+  {
+    id: 4,
+    title: "Onde Correr",
+    description:
+      "Plataforma de corridas de rua de São José dos Campos com calendário de provas, comunidade de corredores e loja de afiliados. Descubra as melhores corridas da região e conecte-se com outros atletas.",
+    image: "./imagens/ondecorrer.png",
+    liveUrl: "https://ondecorrer.app.br/",
+    technologies: ["Next.js", "React", "Supabase", "Tailwind CSS"],
+  },
 ];

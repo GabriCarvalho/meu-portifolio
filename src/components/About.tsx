@@ -45,26 +45,30 @@ const About = () => {
 
             <div className={styles.textContent}>
               <p className="body-lg text-secondary mb-md">
-                Olá! Sou um desenvolvedor full stack apaixonado por criar
-                soluções digitais que fazem a diferença. Com mais de 2 anos de
-                experiência, especializo-me em transformar ideias complexas em
-                aplicações elegantes e funcionais.
+                Sou Gabriel Carvalho, desenvolvedor e profissional de tecnologia
+                apaixonado por criar soluções digitais simples, modernas e
+                funcionais.
               </p>
 
               <p className="body-md text-secondary mb-md">
-                Minha jornada começou com paixão por tecnologia e suporte em TI,
-                evoluindo para o desenvolvimento fullstack, onde aplico
-                conceitos de lógica, programação e boas práticas. Hoje, busco
-                unir performance, segurança e usabilidade, sempre com foco em
-                soluções modernas e código de qualidade.
+                Trabalho desenvolvendo sites e páginas que ajudam negócios,
+                profissionais e marcas a terem uma presença online mais
+                profissional e estratégica. Meu foco é unir design limpo, boa
+                experiência do usuário e performance para criar projetos
+                objetivos e eficientes.
+              </p>
+
+              <p className="body-md text-secondary mb-md">
+                Tenho experiência com tecnologia, infraestrutura e suporte de
+                TI, o que me trouxe uma visão prática para resolver problemas e
+                desenvolver soluções funcionais para diferentes necessidades.
               </p>
 
               <p className="body-md text-secondary mb-lg">
-                Quando não estou programando, gosto de dedicar meu tempo a
-                aprender coisas novas, explorando áreas que me desafiam e
-                ampliam meus conhecimentos. Além disso, mantenho o hábito de
-                praticar exercícios, equilibrando mente e corpo para estar
-                sempre em evolução.
+                Além do desenvolvimento, também gosto de design, automação e
+                criação de projetos digitais. Estou sempre buscando evoluir
+                tecnicamente e acompanhar novas tendências para entregar
+                trabalhos modernos e bem estruturados.
               </p>
             </div>
 

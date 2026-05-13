@@ -61,14 +61,28 @@ const Projects = () => {
                   }}
                 />
                 <div className={styles.projectOverlay}>
-                  <a
-                    href={project.githubUrl}
-                    rel="noopener noreferrer"
-                    className={styles.projectBtn}
-                  >
-                    <FaGithub size={20} />
-                    Ver Código
-                  </a>
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.projectBtn}
+                    >
+                      <FaExternalLinkAlt size={18} />
+                      Ver Site
+                    </a>
+                  )}
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.projectBtn}
+                    >
+                      <FaGithub size={20} />
+                      Ver Código
+                    </a>
+                  )}
                 </div>
               </div>
 
@@ -87,14 +101,28 @@ const Projects = () => {
                 </div>
 
                 <div className={styles.projectActions}>
-                  <a
-                    href={project.githubUrl}
-                    rel="noopener noreferrer"
-                    className={styles.githubLink}
-                  >
-                    <FaGithub size={18} />
-                    Repositório
-                  </a>
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.githubLink}
+                    >
+                      <FaGithub size={18} />
+                      Repositório
+                    </a>
+                  )}
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.githubLink}
+                    >
+                      <FaExternalLinkAlt size={16} />
+                      Ver Site
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

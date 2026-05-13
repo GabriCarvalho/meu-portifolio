@@ -4,6 +4,32 @@ import { useState, useEffect } from "react";
 import { skills } from "@/data/skills";
 import styles from "./Skills.module.css";
 import { FaStar, FaRegStar } from "react-icons/fa";
+import {
+  SiReact,
+  SiTypescript,
+  SiNextdotjs,
+  SiCss3,
+  SiNodedotjs,
+  SiPython,
+  SiPostgresql,
+  SiGit,
+  SiDocker,
+  SiFigma,
+} from "react-icons/si";
+import type { IconType } from "react-icons";
+
+const iconMap: Record<string, { Icon: IconType; color: string }> = {
+  React: { Icon: SiReact, color: "#61DAFB" },
+  TypeScript: { Icon: SiTypescript, color: "#3178C6" },
+  "Next.js": { Icon: SiNextdotjs, color: "#111111" },
+  "CSS/SCSS": { Icon: SiCss3, color: "#1572B6" },
+  "Node.js": { Icon: SiNodedotjs, color: "#339933" },
+  Python: { Icon: SiPython, color: "#3776AB" },
+  PostgreSQL: { Icon: SiPostgresql, color: "#336791" },
+  Git: { Icon: SiGit, color: "#F05032" },
+  Docker: { Icon: SiDocker, color: "#2496ED" },
+  Figma: { Icon: SiFigma, color: "#F24E1E" },
+};
 
 const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -97,14 +123,26 @@ const Skills = () => {
         <div
           className={`${styles.skillsGrid} ${isVisible ? styles.visible : ""}`}
         >
-          {filteredSkills.map((skill, index) => (
+          {filteredSkills.map((skill, index) => {
+            const iconEntry = iconMap[skill.name];
+            const IconComponent = iconEntry?.Icon;
+            return (
             <div
               key={skill.id}
               className={styles.skillCard}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className={styles.skillHeader}>
-                <span className={styles.skillIcon}>{skill.icon}</span>
+                <span
+                  className={styles.skillIcon}
+                  style={{ color: iconEntry?.color }}
+                >
+                  {IconComponent ? (
+                    <IconComponent size={28} />
+                  ) : (
+                    skill.icon
+                  )}
+                </span>
                 <h3 className={styles.skillName}>{skill.name}</h3>
               </div>
 
@@ -114,19 +152,9 @@ const Skills = () => {
                 </div>
                 <span className={styles.skillLevel}>{skill.level}%</span>
               </div>
-
-              {/* Barra de progresso minimalista */}
-              <div className={styles.progressBar}>
-                <div
-                  className={styles.progressFill}
-                  style={{
-                    width: `${skill.level}%`,
-                    animationDelay: `${index * 0.1 + 0.5}s`,
-                  }}
-                ></div>
-              </div>
             </div>
-          ))}
+          );
+          })}
         </div>
       </div>
     </section>
